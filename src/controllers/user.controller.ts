@@ -4,8 +4,8 @@
 // export const getUsers = async (req: Request, res: Response) => {
 //   const { query } = req;
 //   try {
-//     const users = await User.find({ name: { $regex: query.name } });
-//     users[0].name;
+//     const users = await User.find({ username: { $regex: query.username } });
+//     users[0].username;
 //     res.json({ message: "Get all users 12233r3dsf" });
 //   } catch (error) {
 //     const err = error as Error;

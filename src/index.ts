@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import { userRoutes } from "./routes/user.route";
 import { authRoutes } from "./routes/auth-routes";
+import { businessRoute } from "./routes/business.route";
 import cors from "cors";
 import { connectDB } from "./config/db";
 
@@ -18,8 +19,9 @@ async function main() {
   app.use(cors());
 
   // Routes
-  // app.use("/api/users", userRoutes);
+
   app.use("/api/auth", authRoutes);
+  app.use("/api/business", businessRoute);
   // app.use("/api/user", userRoutes);
 
   app.listen(PORT, () => {

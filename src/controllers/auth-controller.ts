@@ -44,18 +44,13 @@ export async function logIn(req: Request, res: Response) {
     console.log("Login attempt for username:", username);
 
     const user = await User.findOne({ username });
-    console.log("User found:", user);
+    console.log("User found");
 
     if (!user) {
       return res.status(401).json({ error: "Authentication failed" });
     }
 
-    // Log the hashed password stored in the database
-    console.log("Stored hashed password:", user.password);
-    console.log("password ", password);
-
     const isPasswordMatch = await bcrypt.compare(password, user.password);
-    console.log("Password match result:", isPasswordMatch);
 
     if (!isPasswordMatch) {
       return res.status(401).json({ error: "Authentication failed" });

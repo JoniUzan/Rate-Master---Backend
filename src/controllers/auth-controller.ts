@@ -21,7 +21,7 @@ export async function register(req: Request, res: Response) {
     const user = new User({ username, password: hashedPassword, email });
     await user.save(); // Save user to database
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ user });
   } catch (error: any) {
     console.error("Error during user registration:", error);
 

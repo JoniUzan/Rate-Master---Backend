@@ -1,5 +1,5 @@
 import express, { Application } from "express";
-// import userRoutes from "./routes/user.route";
+import { userRoutes } from "./routes/user.route";
 import { authRoutes } from "./routes/auth-routes";
 import cors from "cors";
 import { connectDB } from "./config/db";
@@ -20,6 +20,7 @@ async function main() {
   // Routes
   // app.use("/api/users", userRoutes);
   app.use("/api/auth", authRoutes);
+  app.use("/api/user", userRoutes);
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

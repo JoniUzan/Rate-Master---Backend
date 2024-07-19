@@ -15,7 +15,9 @@ export async function register(req: Request, res: Response) {
   console.log("Register endpoint hit");
 
   try {
+
     const { username, password, email } = req.body;
+
 
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS); // Hash password
     const user = new User({ username, password: hashedPassword, email });
@@ -35,6 +37,8 @@ export async function register(req: Request, res: Response) {
   }
 }
 
+
+
 export async function logIn(req: Request, res: Response) {
   try {
     const { username, password } = req.body;
@@ -52,9 +56,9 @@ export async function logIn(req: Request, res: Response) {
 
     // Log the hashed password stored in the database
     console.log("Stored hashed password:", user.password);
-    console.log("password ", password);
+    console.log("Entered password:", password);
 
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    const isPasswordMatch = await user.comparePassword(password);
     console.log("Password match result:", isPasswordMatch);
 
     if (!isPasswordMatch) {

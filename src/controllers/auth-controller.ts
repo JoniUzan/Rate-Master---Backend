@@ -15,9 +15,7 @@ export async function register(req: Request, res: Response) {
   console.log("Register endpoint hit");
 
   try {
-
     const { username, password, email } = req.body;
-
 
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS); // Hash password
     const user = new User({ username, password: hashedPassword, email });
@@ -37,12 +35,9 @@ export async function register(req: Request, res: Response) {
   }
 }
 
-
-
 export async function logIn(req: Request, res: Response) {
   try {
     const { username, password } = req.body;
-
 
     // Log input details
     console.log("Login attempt for username:", username);
@@ -57,6 +52,8 @@ export async function logIn(req: Request, res: Response) {
     const isPasswordMatch = await bcrypt.compare(password, user.password);
 
     if (!isPasswordMatch) {
+      console.log("password match failed");
+
       return res.status(401).json({ error: "Authentication failed" });
     }
 
@@ -76,4 +73,3 @@ export async function logIn(req: Request, res: Response) {
     res.status(500).json({ error: "Login failed" });
   }
 }
-

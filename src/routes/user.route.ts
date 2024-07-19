@@ -1,9 +1,10 @@
-// import { Router } from "express";
-// import { getUser, getUsers } from "../controllers/user.controller";
+import { Router } from "express";
+import { getUserById, getUsers } from "../controllers/user.controller";
 
-// const router = Router();
+const router = Router();
 
-// router.get("/", getUsers);
-// router.get("/:id", getUser);
+router.get("/", getUsers);
+router.get("/:id", getUserById);
 
 // export default router;
+export const userRoutes = Router();

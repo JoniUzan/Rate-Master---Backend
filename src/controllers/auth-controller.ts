@@ -15,7 +15,9 @@ export async function register(req: Request, res: Response) {
   console.log("Register endpoint hit");
 
   try {
+
     const { username, password, email } = req.body;
+
 
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS); // Hash password
     const user = new User({ username, password: hashedPassword, email });
@@ -34,6 +36,8 @@ export async function register(req: Request, res: Response) {
       .json({ error: "Registration failed", details: error.message });
   }
 }
+
+
 
 export async function logIn(req: Request, res: Response) {
   try {

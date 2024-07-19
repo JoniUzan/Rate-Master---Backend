@@ -73,3 +73,43 @@ export async function logIn(req: Request, res: Response) {
     res.status(500).json({ error: "Login failed" });
   }
 }
+
+export async function getUserById(req: Request, res: Response) {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const userObject = user.toObject();
+    const { password, ...userWithoutPassword } = userObject;
+
+    res.status(200).json({ user: userWithoutPassword });
+
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+}
+
+export async function getAllUsers(req: Request, res: Response) {
+  try {
+
+    const users = await User.find();
+
+    const usersWithoutPassword = users.map(user => {
+      const userObject = user.toObject();
+      const { password, ...userWithoutPassword } = userObject;
+      return userWithoutPassword;
+    });
+
+    res.status(200).json({ users: usersWithoutPassword });
+
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+}

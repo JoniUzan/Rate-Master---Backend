@@ -11,15 +11,33 @@ import Like from "./src/models/like-model";
 
 dotenv.config(); // Load environment variables
 
-const createUsers = (count: number) => {
-  return Array(count)
-    .fill(null)
-    .map(() => ({
-      username: faker.internet.userName(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-    }));
-};
+const hardCodedUsers = [
+  {
+    username: "john_doe",
+    email: "john@example.com",
+    password: "password123",
+  },
+  {
+    username: "jane_smith",
+    email: "jane@example.com",
+    password: "password456",
+  },
+  {
+    username: "bob_johnson",
+    email: "bob@example.com",
+    password: "password789",
+  },
+  {
+    username: "alice_brown",
+    email: "alice@example.com",
+    password: "passwordabc",
+  },
+  {
+    username: "charlie_davis",
+    email: "charlie@example.com",
+    password: "passworddef",
+  },
+];
 
 const createBusinesses = (count: number) => {
   return Array(count)
@@ -50,8 +68,7 @@ async function seedDB() {
     await Like.deleteMany({});
 
     // Create users
-    const users = createUsers(5);
-    const createdUsers = await User.insertMany(users);
+    const createdUsers = await User.insertMany(hardCodedUsers);
 
     // Create businesses
     const businesses = createBusinesses(10);

@@ -15,14 +15,10 @@ export async function register(req: Request, res: Response) {
   console.log("Register endpoint hit");
 
   try {
-    const { password, ...restOfUser } = req.body;
+    const { username, password, email } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS); // Hash password with 10 salt rounds
-    const user = new User({
-      password: hashedPassword,
-      ...restOfUser,
-    }); // Create new user object
-
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS); // Hash password
+    const user = new User({ username, password: hashedPassword, email });
     await user.save(); // Save user to database
 
     res.status(201).json({ message: "User registered successfully" });
@@ -42,6 +38,7 @@ export async function register(req: Request, res: Response) {
 export async function logIn(req: Request, res: Response) {
   try {
     const { username, password } = req.body;
+
 
     // Log input details
     console.log("Login attempt for username:", username);
@@ -70,7 +67,7 @@ export async function logIn(req: Request, res: Response) {
     }
 
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
-      expiresIn: "24h",
+      expiresIn: "1h",
     });
 
     // Send token in response to the client, not the user object!
@@ -80,3 +77,4 @@ export async function logIn(req: Request, res: Response) {
     res.status(500).json({ error: "Login failed" });
   }
 }
+

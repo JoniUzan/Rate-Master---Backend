@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import Business from '../models/business-model'; // Adjust the path as needed
-import Review from '../models/review-model'; // Adjust the path as needed
+import Business from '../models/business-model';
+import Review from '../models/review-model';
 import Like from '../models/like-model';
 
 export async function getAllBusinesses(req: Request, res: Response) {
@@ -83,6 +83,8 @@ export async function addReview(req: CustomRequest, res: Response) {
             user: userId
         });
         await newReview.save();
+        console.log(newReview);
+
         res.status(201).json(newReview);
     } catch (error) {
         console.log('Error adding review, business.controller:', error);
@@ -165,7 +167,6 @@ export async function deleteReview(req: CustomRequest, res: Response) {
 export async function handleReviewLike(req: CustomRequest, res: Response) {
     const userId = req.userId;
     const { id } = req.params;
-
     try {
         const like = await Like.findOne({ review: id, user: userId });
 
@@ -186,7 +187,6 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
                 return res.status(404).json({ message: "Review not found" });
             }
         } else {
-
             await Like.findOneAndDelete({ review: id, user: userId });
 
             const updatedReview = await Review.findById(id);
@@ -196,8 +196,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
 
                 return res.status(200).json({ message: "Review unliked successfully" });
             }
-
-            return res.status(200).json({ message: "Review Unliked" });
+            return res.status(404).json({ message: "Review not found" });
         }
     } catch (error: any) {
         console.error("Error liking/unliking review:", error);

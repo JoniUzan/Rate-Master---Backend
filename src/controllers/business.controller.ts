@@ -99,8 +99,6 @@ export async function addReview(req: CustomRequest, res: Response) {
     });
     await newReview.save();
     const user = await User.findById(userId);
-    
-    user?.reviews.push(newReview._id.toString());
 
     res.status(201).json(newReview);
   } catch (error) {

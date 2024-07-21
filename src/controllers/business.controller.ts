@@ -79,7 +79,7 @@ export async function getBusinessReviews(req: Request, res: Response) {
     }
 }
 
-interface CustomRequest extends Request {
+export interface CustomRequest extends Request {
     userId?: string;
 }
 

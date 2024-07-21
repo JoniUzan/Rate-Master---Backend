@@ -8,6 +8,7 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 import { Request, Response, NextFunction } from "express";
+import { CustomRequest } from "./business.controller";
 
 const SALT_ROUNDS = 10; // Number of rounds to generate salt. 10 is recommended value
 
@@ -80,11 +81,11 @@ export async function logIn(req: Request, res: Response) {
   }
 }
 
-export async function getUserById(req: Request, res: Response) {
-  const { id } = req.params;
+export async function getUserById(req: CustomRequest, res: Response) {
+  const { userId } = req;
 
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });

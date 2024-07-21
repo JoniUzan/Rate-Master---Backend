@@ -8,6 +8,7 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 import { Request, Response, NextFunction } from "express";
+import { CustomRequest } from "./business.controller";
 
 const SALT_ROUNDS = 10; // Number of rounds to generate salt. 10 is recommended value
 
@@ -15,10 +16,16 @@ export async function register(req: Request, res: Response) {
   console.log("Register endpoint hit");
 
   try {
-    const { username, password, email } = req.body;
+    const { username, password, email, firstName, lastName } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS); // Hash password
-    const user = new User({ username, password: hashedPassword, email });
+    const user = new User({
+      username,
+      password: hashedPassword,
+      email,
+      firstName,
+      lastName,
+    });
     await user.save(); // Save user to database
 
     res.status(201).json({ user });
@@ -74,11 +81,11 @@ export async function logIn(req: Request, res: Response) {
   }
 }
 
-export async function getUserById(req: Request, res: Response) {
-  const { id } = req.params;
+export async function getUserById(req: CustomRequest, res: Response) {
+  const { userId } = req;
 
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -88,7 +95,6 @@ export async function getUserById(req: Request, res: Response) {
     const { password, ...userWithoutPassword } = userObject;
 
     res.status(200).json({ user: userWithoutPassword });
-
   } catch (error) {
     console.error("Error fetching user:", error);
     res.status(500).json({ error: "Server error" });
@@ -97,17 +103,15 @@ export async function getUserById(req: Request, res: Response) {
 
 export async function getAllUsers(req: Request, res: Response) {
   try {
-
     const users = await User.find();
 
-    const usersWithoutPassword = users.map(user => {
+    const usersWithoutPassword = users.map((user) => {
       const userObject = user.toObject();
       const { password, ...userWithoutPassword } = userObject;
       return userWithoutPassword;
     });
 
     res.status(200).json({ users: usersWithoutPassword });
-
   } catch (error) {
     console.error("Error fetching users:", error);
     res.status(500).json({ error: "Server error" });

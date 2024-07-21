@@ -210,32 +210,26 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
             }
         } else {
             await Like.findOneAndDelete({ review: id, user: userId });
-            return res.status(200).json({ message: "Review liked successfully" });
+
+            const updatedReview = await Review.findById(id);
+            if (updatedReview) {
+                updatedReview.likes -= 1;
+                await updatedReview.save();
+
+                return res.status(200).json({ message: "Review unliked successfully" });
+            }
+
+            return res.status(200).json({ message: "Review Unliked" });
+        }
+    } catch (error: any) {
+        console.error("Error liking/unliking review:", error);
+        if (error.name === "CastError") {
+            res.status(400).json({ message: "Invalid ID", error: error.message });
         } else {
-            return res.status(404).json({ message: "Review not found" });
+            res.status(500).json({
+                message: "An unexpected error occurred",
+                error: error.message,
+            });
         }
-    } else {
-        await Like.findOneAndDelete({ review: id, user: userId });
-
-        const updatedReview = await Review.findById(id);
-        if (updatedReview) {
-            updatedReview.likes -= 1;
-            await updatedReview.save();
-
-            return res.status(200).json({ message: "Review unliked successfully" });
-        }
-
-        return res.status(200).json({ message: "Review Unliked" });
     }
-} catch (error: any) {
-    console.error("Error liking/unliking review:", error);
-    if (error.name === "CastError") {
-        res.status(400).json({ message: "Invalid ID", error: error.message });
-    } else {
-        res.status(500).json({
-            message: "An unexpected error occurred",
-            error: error.message,
-        });
-    }
-}
 }

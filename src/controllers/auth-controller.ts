@@ -83,6 +83,7 @@ export async function logIn(req: Request, res: Response) {
 
 export async function getUserById(req: CustomRequest, res: Response) {
   const { userId } = req;
+  console.log(userId);
 
   try {
     const user = await User.findById(userId);

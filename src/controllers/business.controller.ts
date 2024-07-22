@@ -218,24 +218,24 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
             });
             await newLike.save();
 
-            const updatedReview = await Review.findById(id);
+            const updatedReview = await Review.findById(id).populate("user", "username");
             if (updatedReview) {
                 updatedReview.likes += 1;
                 await updatedReview.save();
 
-                return res.status(200).json({ message: "Review liked successfully" });
+                return res.status(200).json(updatedReview);
             } else {
                 return res.status(404).json({ message: "Review not found" });
             }
         } else {
             await Like.findOneAndDelete({ review: id, user: userId });
 
-            const updatedReview = await Review.findById(id);
+            const updatedReview = await Review.findById(id).populate("user", "username");
             if (updatedReview) {
                 updatedReview.likes -= 1;
                 await updatedReview.save();
 
-                return res.status(200).json({ message: "Review unliked successfully" });
+                return res.status(200).json(updatedReview);
             }
 
             return res.status(200).json({ message: "Review Unliked" });

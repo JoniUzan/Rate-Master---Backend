@@ -53,61 +53,81 @@ const businesses = [
     name: "Tech Solutions Inc.",
     description: "IT consulting and services",
     location: "New York, NY",
-    image: "https://via.placeholder.com/150?text=Tech+Solutions+Inc",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8VGVjaCUyMFNvbHV0aW9ucyUyMEluY3xlbnwwfHwwfHx8MA%3D%3D",
+    stars: 4,
   },
   {
     name: "Green Grocers",
     description: "Organic produce market",
     location: "San Francisco, CA",
-    image: "https://via.placeholder.com/150?text=Green+Grocers",
+    image:
+      "https://images.unsplash.com/photo-1458917524587-d3236cc8c2c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R3JlZW4lMjBHcm9jZXJzfGVufDB8fDB8fHww",
+    stars: 5,
   },
   {
     name: "Fitness First",
     description: "24/7 gym and fitness center",
     location: "Los Angeles, CA",
-    image: "https://via.placeholder.com/150?text=Fitness+First",
+    image:
+      "https://plus.unsplash.com/premium_photo-1670505062582-fdaa83c23c9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rml0bmVzc3xlbnwwfHwwfHx8MA%3D%3D",
+    stars: 3,
   },
   {
     name: "Bookworm's Paradise",
     description: "Independent bookstore",
     location: "Seattle, WA",
-    image: "https://via.placeholder.com/150?text=Bookworm%27s+Paradise",
+    image:
+      "https://images.unsplash.com/photo-1691458593914-e336fa35b84d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Qm9va3dvcm0nc3xlbnwwfHwwfHx8MA%3D%3D",
+    stars: 4,
   },
   {
     name: "Gourmet Bites",
     description: "Fine dining restaurant",
     location: "Chicago, IL",
-    image: "https://via.placeholder.com/150?text=Gourmet+Bites",
+    image:
+      "https://media.istockphoto.com/id/1454475515/photo/a-male-chef-decorating-a-pizza.webp?b=1&s=170667a&w=0&k=20&c=hfsvMhbFXfTbsjOiEsxuinwiQIF5HqN4lFX_R6kYaco=",
+    stars: 5,
   },
   {
     name: "Auto Care Pro",
     description: "Car repair and maintenance",
     location: "Houston, TX",
-    image: "https://via.placeholder.com/150?text=Auto+Care+Pro",
+    image:
+      "https://images.unsplash.com/photo-1702146715426-2380c6ad54c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QXV0byUyMENhcmV8ZW58MHx8MHx8fDA%3D",
+    stars: 2,
   },
   {
     name: "Cozy Stays",
     description: "Boutique hotel",
     location: "Miami, FL",
-    image: "https://via.placeholder.com/150?text=Cozy+Stays",
+    image:
+      "https://plus.unsplash.com/premium_photo-1670360414882-4d4e261afb53?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Qm91dGlxdWUlMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D",
+    stars: 3,
   },
   {
     name: "Pet Pals",
     description: "Pet supplies and grooming",
     location: "Denver, CO",
-    image: "https://via.placeholder.com/150?text=Pet+Pals",
+    image:
+      "https://plus.unsplash.com/premium_photo-1710406095492-7e62eba19745?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8UGV0fGVufDB8fDB8fHww",
+    stars: 4,
   },
   {
     name: "Home Decor Haven",
     description: "Interior design and furniture",
     location: "Atlanta, GA",
-    image: "https://via.placeholder.com/150?text=Home+Decor+Haven",
+    image:
+      "https://plus.unsplash.com/premium_photo-1661928005866-864c961775ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SW50ZXJpb3IlMjBkZXNpZ24lMjBhbmQlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D",
+    stars: 5,
   },
   {
     name: "Wellness Spa",
     description: "Relaxation and beauty treatments",
     location: "Boston, MA",
-    image: "https://via.placeholder.com/150?text=Wellness+Spa",
+    image:
+      "https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3BhfGVufDB8fDB8fHww",
+    stars: 3,
   },
 ];
 

@@ -2,8 +2,8 @@ import express, { Application } from "express";
 import { authRoutes } from "./routes/auth-routes";
 import { businessRoute } from "./routes/business.route";
 import cors from "cors";
-import { connectDB } from "./config/db" ;
- 
+import { connectDB } from "./config/db";
+
 const PORT = process.env.PORT || 3000;
 
 const app: Application = express();

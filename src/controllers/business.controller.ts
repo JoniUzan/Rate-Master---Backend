@@ -56,10 +56,7 @@ export async function getBusinessReviews(req: Request, res: Response) {
     const { id } = req.params;
 
     try {
-        const reviews = await Review.find({ business: id }).populate(
-            "user",
-            "username"
-        );
+        const reviews = await Review.find({ business: id }).populate("user", "username");
         // populate : replase the user field inside the business object to the user DOCUMENT from the USERS collection
         res.json(reviews);
     } catch (error) {

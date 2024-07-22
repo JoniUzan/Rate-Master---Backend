@@ -4,7 +4,6 @@ import { Request, Response, NextFunction } from "express";
 
 const { JWT_SECRET } = process.env;
 
-
 //interface
 export interface CustomRequest extends Request {
   userId?: string; // or number, depending on your userId type
@@ -19,6 +18,8 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
   // Split the token from the header (Bearer token)
   const authHeader =
     req.headers["Authorization"] || req.headers["authorization"]; // Get the authorization header
+  console.log("authHeader=", authHeader);
+
   let token: string | undefined;
   if (typeof authHeader === "string") {
     token = authHeader && authHeader.split(" ")[1]; // Get the token from the header

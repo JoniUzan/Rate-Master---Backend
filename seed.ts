@@ -53,47 +53,61 @@ const businesses = [
     name: "Tech Solutions Inc.",
     description: "IT consulting and services",
     location: "New York, NY",
+    image: "https://via.placeholder.com/150?text=Tech+Solutions+Inc",
   },
   {
     name: "Green Grocers",
     description: "Organic produce market",
     location: "San Francisco, CA",
+    image: "https://via.placeholder.com/150?text=Green+Grocers",
   },
   {
     name: "Fitness First",
     description: "24/7 gym and fitness center",
     location: "Los Angeles, CA",
+    image: "https://via.placeholder.com/150?text=Fitness+First",
   },
   {
     name: "Bookworm's Paradise",
     description: "Independent bookstore",
     location: "Seattle, WA",
+    image: "https://via.placeholder.com/150?text=Bookworm%27s+Paradise",
   },
   {
     name: "Gourmet Bites",
     description: "Fine dining restaurant",
     location: "Chicago, IL",
+    image: "https://via.placeholder.com/150?text=Gourmet+Bites",
   },
   {
     name: "Auto Care Pro",
     description: "Car repair and maintenance",
     location: "Houston, TX",
+    image: "https://via.placeholder.com/150?text=Auto+Care+Pro",
   },
-  { name: "Cozy Stays", description: "Boutique hotel", location: "Miami, FL" },
+  {
+    name: "Cozy Stays",
+    description: "Boutique hotel",
+    location: "Miami, FL",
+    image: "https://via.placeholder.com/150?text=Cozy+Stays",
+  },
   {
     name: "Pet Pals",
     description: "Pet supplies and grooming",
     location: "Denver, CO",
+    image: "https://via.placeholder.com/150?text=Pet+Pals",
   },
   {
     name: "Home Decor Haven",
     description: "Interior design and furniture",
     location: "Atlanta, GA",
+    image: "https://via.placeholder.com/150?text=Home+Decor+Haven",
   },
   {
     name: "Wellness Spa",
     description: "Relaxation and beauty treatments",
     location: "Boston, MA",
+    image: "https://via.placeholder.com/150?text=Wellness+Spa",
   },
 ];
 

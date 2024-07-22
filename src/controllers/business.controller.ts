@@ -3,11 +3,34 @@ import Business from "../models/business-model"; // Adjust the path as needed
 import Review from "../models/review-model"; // Adjust the path as needed
 import Like from "../models/like-model";
 import User from "../models/user-model";
-
 export async function getAllBusinesses(req: Request, res: Response) {
     try {
-        const businesses = await Business.find();
-        res.json(businesses);
+        const page = parseInt(req.query.page as string) || 1;
+        const limit = parseInt(req.query.limit as string) || 6;
+        const sort = (req.query.sort as string) || 'name';
+        const search = req.query.search as string;
+
+        const skip = (page - 1) * limit;
+
+        let query = Business.find();
+
+        if (search) {
+            query = query.find({ name: { $regex: search, $options: 'i' } });
+        }
+
+        const totalCount = await Business.countDocuments(query);
+
+        const businesses = await query
+            .sort({ [sort]: 1 })
+            .skip(skip)
+            .limit(limit);
+
+        res.json({
+            businesses,
+            currentPage: page,
+            totalPages: Math.ceil(totalCount / limit),
+            totalCount,
+        });
     } catch (error) {
         console.error("Error fetching businesses, business.controller:", error);
         if (error instanceof Error) {
@@ -26,7 +49,6 @@ export async function getAllBusinesses(req: Request, res: Response) {
         }
     }
 }
-
 export async function getBusinessById(req: Request, res: Response) {
     const { id } = req.params;
     try {

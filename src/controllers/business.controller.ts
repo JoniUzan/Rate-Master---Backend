@@ -77,6 +77,7 @@ export async function getBusinessById(req: Request, res: Response) {
 export async function getBusinessReviews(req: Request, res: Response) {
   const { id } = req.params;
 
+ 
   try {
     const reviews = await Review.find({ business: id }).populate(
       "user",
@@ -129,6 +130,7 @@ export async function getTopBusinesses(req: Request, res: Response) {
       res
         .status(500)
         .json({ message: "getTopBusinesses An unknown error occurred" });
+
     }
   }
 }
@@ -256,6 +258,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
       });
       await newLike.save();
 
+
       const updatedReview = await Review.findById(id);
       if (updatedReview) {
         updatedReview.likes += 1;
@@ -276,6 +279,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
         return res.status(200).json({ message: "Review unliked successfully" });
       }
 
+
       return res.status(200).json({ message: "Review Unliked" });
     }
   } catch (error: any) {
@@ -288,5 +292,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
         error: error.message,
       });
     }
+
   }
 }
+

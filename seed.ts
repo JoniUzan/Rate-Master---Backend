@@ -56,6 +56,7 @@ const businesses = [
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8VGVjaCUyMFNvbHV0aW9ucyUyMEluY3xlbnwwfHwwfHx8MA%3D%3D",
     stars: 4,
+    coordinates: { lat: 40.7128, lng: -74.006 },
   },
   {
     name: "Green Grocers",
@@ -64,6 +65,7 @@ const businesses = [
     image:
       "https://images.unsplash.com/photo-1458917524587-d3236cc8c2c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R3JlZW4lMjBHcm9jZXJzfGVufDB8fDB8fHww",
     stars: 5,
+    coordinates: { lat: 37.7749, lng: -122.4194 },
   },
   {
     name: "Fitness First",
@@ -72,6 +74,7 @@ const businesses = [
     image:
       "https://plus.unsplash.com/premium_photo-1670505062582-fdaa83c23c9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rml0bmVzc3xlbnwwfHwwfHx8MA%3D%3D",
     stars: 3,
+    coordinates: { lat: 34.0522, lng: -118.2437 },
   },
   {
     name: "Bookworm's Paradise",
@@ -80,6 +83,7 @@ const businesses = [
     image:
       "https://images.unsplash.com/photo-1691458593914-e336fa35b84d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Qm9va3dvcm0nc3xlbnwwfHwwfHx8MA%3D%3D",
     stars: 4,
+    coordinates: { lat: 47.6062, lng: -122.3321 },
   },
   {
     name: "Gourmet Bites",
@@ -88,6 +92,7 @@ const businesses = [
     image:
       "https://media.istockphoto.com/id/1454475515/photo/a-male-chef-decorating-a-pizza.webp?b=1&s=170667a&w=0&k=20&c=hfsvMhbFXfTbsjOiEsxuinwiQIF5HqN4lFX_R6kYaco=",
     stars: 5,
+    coordinates: { lat: 41.8781, lng: -87.6298 },
   },
   {
     name: "Auto Care Pro",
@@ -96,6 +101,7 @@ const businesses = [
     image:
       "https://images.unsplash.com/photo-1702146715426-2380c6ad54c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QXV0byUyMENhcmV8ZW58MHx8MHx8fDA%3D",
     stars: 2,
+    coordinates: { lat: 29.7604, lng: -95.3698 },
   },
   {
     name: "Cozy Stays",
@@ -104,6 +110,7 @@ const businesses = [
     image:
       "https://plus.unsplash.com/premium_photo-1670360414882-4d4e261afb53?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Qm91dGlxdWUlMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D",
     stars: 3,
+    coordinates: { lat: 25.7617, lng: -80.1918 },
   },
   {
     name: "Pet Pals",
@@ -112,6 +119,7 @@ const businesses = [
     image:
       "https://plus.unsplash.com/premium_photo-1710406095492-7e62eba19745?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8UGV0fGVufDB8fDB8fHww",
     stars: 4,
+    coordinates: { lat: 39.7392, lng: -104.9903 },
   },
   {
     name: "Home Decor Haven",
@@ -120,6 +128,7 @@ const businesses = [
     image:
       "https://plus.unsplash.com/premium_photo-1661928005866-864c961775ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SW50ZXJpb3IlMjBkZXNpZ24lMjBhbmQlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D",
     stars: 5,
+    coordinates: { lat: 33.749, lng: -84.388 },
   },
   {
     name: "Wellness Spa",
@@ -128,6 +137,7 @@ const businesses = [
     image:
       "https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3BhfGVufDB8fDB8fHww",
     stars: 3,
+    coordinates: { lat: 42.3601, lng: -71.0589 },
   },
 ];
 

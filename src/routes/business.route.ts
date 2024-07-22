@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { verifyToken } from "../middelware/auth-middelware";
 import {
- joni_dev
   getBusinessById,
   getBusinessReviews,
   getAllBusinesses,

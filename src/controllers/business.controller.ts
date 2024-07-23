@@ -105,7 +105,7 @@ export async function getTopBusinesses(req: Request, res: Response) {
   try {
     console.log("getTopBusinesses");
 
-    const topBusinesses = await Business.find().sort({ stars: -1 }).limit(4); // find the top 4 ranking businesses
+    const topBusinesses = await Business.find().sort({ stars: -1 }).limit(7); // find the top 4 ranking businesses
 
     res.status(200).json(topBusinesses);
   } catch (error) {

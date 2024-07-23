@@ -1,12 +1,15 @@
 import jwt from "jsonwebtoken";
 
 import { Request, Response, NextFunction } from "express";
+import { server } from "typescript";
+import { Server } from "socket.io";
 
 const { JWT_SECRET } = process.env;
 
 //interface
 export interface CustomRequest extends Request {
   userId?: string; // or number, depending on your userId type
+  io?: Server;
 }
 
 export interface JwtPayload {
@@ -18,7 +21,7 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
   // Split the token from the header (Bearer token)
   const authHeader =
     req.headers["Authorization"] || req.headers["authorization"]; // Get the authorization header
-  console.log("authHeader=", authHeader);
+  // console.log("authHeader=", authHeader);
 
   let token: string | undefined;
   if (typeof authHeader === "string") {

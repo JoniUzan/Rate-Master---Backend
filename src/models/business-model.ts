@@ -5,7 +5,7 @@ interface IBusiness extends Document {
   description: string;
   location: string;
   stars: number;
-  satrsarray: number[];
+  starsarray: number[];
   reviews: string[];
   image: string;
   coordinates: { lat: number; lng: number };
@@ -17,7 +17,7 @@ const businessSchema = new Schema<IBusiness>({
   description: { type: String, required: true },
   location: { type: String },
   stars: { type: Number, default: 0, required: true },
-  satrsarray: { type: [], default: [], required: true },
+  starsarray: { type: [], default: [], required: true },
   reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
   image: { type: String, required: true },
   coordinates: { type: Object, required: true },

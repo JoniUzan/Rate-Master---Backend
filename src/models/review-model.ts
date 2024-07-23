@@ -7,9 +7,10 @@ export interface IReview {
   business: Types.ObjectId;
   user: Types.ObjectId;
   likes: number;
-    time: string;
+  time: string;
+  rating?: number;
 
-  
+
 }
 
 const reviewSchema = new Schema<IReview>({
@@ -17,7 +18,8 @@ const reviewSchema = new Schema<IReview>({
   business: { type: Schema.Types.ObjectId, ref: "Business", required: true },
   user: { type: Schema.Types.ObjectId, ref: "User", required: true },
   likes: { type: Number, default: 0 },
-   time: { type: String, default: () => formatDate(new Date().getTime()) },
+  time: { type: String, default: () => formatDate(new Date().getTime()) },
+  rating: { type: Number },
 
 });
 

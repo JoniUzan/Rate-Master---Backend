@@ -7,24 +7,43 @@ import { io } from "..";
 import { Server } from "socket.io";
 import { CustomRequest } from "../middelware/auth-middelware";
 // import { CustomRequest } from "../middelware/auth-middelware";
+
+function makeFilter(q: {
+  search?: string;
+  category?: string;
+  location?: string;
+}) {
+  const res: {
+    name?: { $regex: string; $options: string };
+    category?: { $regex: string; $options: string };
+    location?: { $regex: string; $options: string };
+  } = {};
+
+  if (q.search) {
+    res.name = { $regex: q.search, $options: "i" }; // "i" for case-insensitive
+  }
+  if (q.category) {
+    res.category = { $regex: q.category, $options: "i" }; // "i" for case-insensitive
+  }
+  if (q.location) {
+    res.location = { $regex: q.location, $options: "i" }; // "i" for case-insensitive
+  }
+  return res;
+}
+
 export async function getAllBusinesses(req: Request, res: Response) {
   try {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 6;
     const sort = (req.query.sort as string) || "name";
     const search = req.query.search as string;
+    const filter = makeFilter(req.query);
 
     const skip = (page - 1) * limit;
 
-    let query = Business.find();
+    const totalCount = await Business.countDocuments(filter);
 
-    if (search) {
-      query = query.find({ name: { $regex: search, $options: "i" } });
-    }
-
-    const totalCount = await Business.countDocuments(query);
-
-    const businesses = await query
+    const businesses = await Business.find(filter)
       .sort({ [sort]: 1 })
       .skip(skip)
       .limit(limit);
@@ -53,6 +72,7 @@ export async function getAllBusinesses(req: Request, res: Response) {
     }
   }
 }
+
 export async function getBusinessById(req: Request, res: Response) {
   const { id } = req.params;
   try {
@@ -263,7 +283,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
         updatedReview.likes += 1;
         await updatedReview.save();
 
-        io.emit('reviewUpdated', updatedReview);
+        io.emit("reviewUpdated", updatedReview);
 
         return res.status(200).json(updatedReview);
       } else {
@@ -280,7 +300,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
         updatedReview.likes -= 1;
         await updatedReview.save();
 
-        io.emit('reviewUpdated', updatedReview);
+        io.emit("reviewUpdated", updatedReview);
 
         return res.status(200).json(updatedReview);
       }

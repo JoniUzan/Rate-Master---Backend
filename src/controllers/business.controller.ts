@@ -3,6 +3,10 @@ import Business from "../models/business-model"; // Adjust the path as needed
 import Review from "../models/review-model"; // Adjust the path as needed
 import Like from "../models/like-model";
 import User from "../models/user-model";
+import { io } from "..";
+import { Server } from "socket.io";
+import { CustomRequest } from "../middelware/auth-middelware";
+// import { CustomRequest } from "../middelware/auth-middelware";
 export async function getAllBusinesses(req: Request, res: Response) {
   try {
     const page = parseInt(req.query.page as string) || 1;
@@ -132,11 +136,6 @@ export async function getTopBusinesses(req: Request, res: Response) {
     }
   }
 }
-
-export interface CustomRequest extends Request {
-  userId?: string;
-}
-
 export async function addReview(req: CustomRequest, res: Response) {
   const userId = req.userId;
   const { id } = req.params;
@@ -264,6 +263,8 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
         updatedReview.likes += 1;
         await updatedReview.save();
 
+        io.emit('reviewUpdated', updatedReview);
+
         return res.status(200).json(updatedReview);
       } else {
         return res.status(404).json({ message: "Review not found" });
@@ -279,10 +280,12 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
         updatedReview.likes -= 1;
         await updatedReview.save();
 
+        io.emit('reviewUpdated', updatedReview);
+
         return res.status(200).json(updatedReview);
       }
 
-      return res.status(200).json({ message: "Review Unliked" });
+      return res.status(404).json({ message: "Review not found" });
     }
   } catch (error: any) {
     console.error("Error liking/unliking review:", error);

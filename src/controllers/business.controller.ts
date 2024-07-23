@@ -7,6 +7,21 @@ import { io } from "..";
 import { Server } from "socket.io";
 import { CustomRequest } from "../middelware/auth-middelware";
 // import { CustomRequest } from "../middelware/auth-middelware";
+
+// function makeFilter(q) {
+//     const res = {};
+//     if (q["search"]) {
+//       res.name = { $regex: q["search"], $options: "i" }; // "i" for case-insensitive
+//     }
+//     if (q["category"]) {
+//       res.category = { $regex: q["category"], $options: "i" }; // "i" for case-insensitive
+//     }
+  
+
+  
+//     return res;
+//   }
+
 export async function getAllBusinesses(req: Request, res: Response) {
   try {
     const page = parseInt(req.query.page as string) || 1;

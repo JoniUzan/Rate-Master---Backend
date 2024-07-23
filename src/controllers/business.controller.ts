@@ -104,7 +104,7 @@ export async function getBusinessReviews(req: Request, res: Response) {
   try {
     const reviews = await Review.find({ business: id }).populate(
       "user",
-      "username"
+      "username image"
     );
     // populate : replase the user field inside the business object to the user DOCUMENT from the USERS collection
     res.json(reviews);
@@ -173,7 +173,10 @@ export async function addReview(req: CustomRequest, res: Response) {
     await newReview.save();
     const user = await User.findById(userId);
 
-    const populatedReview = await Review.findById(newReview._id).populate('user', 'username');
+    const populatedReview = await Review.findById(newReview._id).populate(
+      "user",
+      "username"
+    );
 
     // Emit socket event for new review
     io.emit("newReview", populatedReview);

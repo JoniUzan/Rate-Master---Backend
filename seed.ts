@@ -47,11 +47,12 @@ const users = [
     lastName: "Davis",
   },
   {
-username:"rgam2002",
-email:"rgam2002@gmail.com",
-password:"$2a$10$ROXA92ULPBDXnscRgrcMweP.MS6ivIwb9inb2B3X.r80/XygrWe7K",
-firstName:"Ron",
-lastName:"Gamarnik",},
+    username: "rgam2002",
+    email: "rgam2002@gmail.com",
+    password: "$2a$10$ROXA92ULPBDXnscRgrcMweP.MS6ivIwb9inb2B3X.r80/XygrWe7K",
+    firstName: "Ron",
+    lastName: "Gamarnik",
+  },
 ];
 
 const businesses = [
@@ -59,91 +60,111 @@ const businesses = [
     name: "Tech Solutions Inc.",
     description: "IT consulting and services",
     location: "New York, NY",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8VGVjaCUyMFNvbHV0aW9ucyUyMEluY3xlbnwwfHwwfHx8MA%3D%3D",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8VGVjaCUyMFNvbHV0aW9ucyUyMEluY3xlbnwwfHwwfHx8MA%3D%3D",
     starsarray: [4, 4, 4, 4, 4],
     stars: 4,
     coordinates: { lat: 40.7128, lng: -74.006 },
+    category: "Technology",
   },
   {
     name: "Green Grocers",
     description: "Organic produce market",
     location: "San Francisco, CA",
-    image: "https://images.unsplash.com/photo-1458917524587-d3236cc8c2c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R3JlZW4lMjBHcm9jZXJzfGVufDB8fDB8fHww",
+    image:
+      "https://images.unsplash.com/photo-1458917524587-d3236cc8c2c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R3JlZW4lMjBHcm9jZXJzfGVufDB8fDB8fHww",
     starsarray: [5, 5, 5, 5, 5],
     stars: 5,
     coordinates: { lat: 37.7749, lng: -122.4194 },
+    category: "Grocery",
   },
   {
     name: "Fitness First",
     description: "24/7 gym and fitness center",
     location: "Los Angeles, CA",
-    image: "https://plus.unsplash.com/premium_photo-1670505062582-fdaa83c23c9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rml0bmVzc3xlbnwwfHwwfHx8MA%3D%3D",
+    image:
+      "https://plus.unsplash.com/premium_photo-1670505062582-fdaa83c23c9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rml0bmVzc3xlbnwwfHwwfHx8MA%3D%3D",
     starsarray: [3, 3, 3, 3, 3],
     stars: 3,
     coordinates: { lat: 34.0522, lng: -118.2437 },
+    category: "Fitness",
   },
   {
     name: "Bookworm's Paradise",
     description: "Independent bookstore",
     location: "Seattle, WA",
-    image: "https://images.unsplash.com/photo-1691458593914-e336fa35b84d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Qm9va3dvcm0nc3xlbnwwfHwwfHx8MA%3D%3D",
+    image:
+      "https://images.unsplash.com/photo-1691458593914-e336fa35b84d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Qm9va3dvcm0nc3xlbnwwfHwwfHx8MA%3D%3D",
     starsarray: [4, 4, 4, 4, 4],
     stars: 4,
     coordinates: { lat: 47.6062, lng: -122.3321 },
+    category: "Retail",
   },
   {
     name: "Gourmet Bites",
     description: "Fine dining restaurant",
     location: "Chicago, IL",
-    image: "https://media.istockphoto.com/id/1454475515/photo/a-male-chef-decorating-a-pizza.webp?b=1&s=170667a&w=0&k=20&c=hfsvMhbFXfTbsjOiEsxuinwiQIF5HqN4lFX_R6kYaco=",
+    image:
+      "https://media.istockphoto.com/id/1454475515/photo/a-male-chef-decorating-a-pizza.webp?b=1&s=170667a&w=0&k=20&c=hfsvMhbFXfTbsjOiEsxuinwiQIF5HqN4lFX_R6kYaco=",
     starsarray: [5, 5, 5, 5, 5],
     stars: 5,
     coordinates: { lat: 41.8781, lng: -87.6298 },
+    category: "Restaurant",
   },
   {
     name: "Auto Care Pro",
     description: "Car repair and maintenance",
     location: "Houston, TX",
-    image: "https://images.unsplash.com/photo-1702146715426-2380c6ad54c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QXV0byUyMENhcmV8ZW58MHx8MHx8fDA%3D",
+    image:
+      "https://images.unsplash.com/photo-1702146715426-2380c6ad54c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QXV0byUyMENhcmV8ZW58MHx8MHx8fDA%3D",
     starsarray: [2, 2, 2, 2, 2],
     stars: 2,
     coordinates: { lat: 29.7604, lng: -95.3698 },
+    category: "Automotive",
   },
   {
     name: "Cozy Stays",
     description: "Boutique hotel",
     location: "Miami, FL",
-    image: "https://plus.unsplash.com/premium_photo-1670360414882-4d4e261afb53?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Qm91dGlxdWUlMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D",
+    image:
+      "https://plus.unsplash.com/premium_photo-1670360414882-4d4e261afb53?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Qm91dGlxdWUlMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D",
     starsarray: [3, 3, 3, 3, 3],
     stars: 3,
     coordinates: { lat: 25.7617, lng: -80.1918 },
+    category: "Hospitality",
   },
   {
     name: "Pet Pals",
     description: "Pet supplies and grooming",
     location: "Denver, CO",
-    image: "https://plus.unsplash.com/premium_photo-1710406095492-7e62eba19745?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8UGV0fGVufDB8fDB8fHww",
+    image:
+      "https://plus.unsplash.com/premium_photo-1710406095492-7e62eba19745?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8UGV0fGVufDB8fDB8fHww",
     starsarray: [4, 4, 4, 4, 4],
     stars: 4,
     coordinates: { lat: 39.7392, lng: -104.9903 },
+    category: "Pet Services",
   },
   {
     name: "Home Decor Haven",
     description: "Interior design and furniture",
     location: "Atlanta, GA",
-    image: "https://plus.unsplash.com/premium_photo-1661928005866-864c961775ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SW50ZXJpb3IlMjBkZXNpZ24lMjBhbmQlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D",
+    image:
+      "https://plus.unsplash.com/premium_photo-1661928005866-864c961775ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SW50ZXJpb3IlMjBkZXNpZ24lMjBhbmQlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D",
     starsarray: [5, 5, 5, 5, 5],
     stars: 5,
     coordinates: { lat: 33.749, lng: -84.388 },
+    category: "Home & Garden",
   },
   {
     name: "Wellness Spa",
     description: "Relaxation and beauty treatments",
     location: "Boston, MA",
-    image: "https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3BhfGVufDB8fDB8fHww",
+    image:
+      "https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3BhfGVufDB8fDB8fHww",
     starsarray: [3, 3, 3, 3, 3],
     stars: 3,
     coordinates: { lat: 42.3601, lng: -71.0589 },
+    category: "Health & Beauty",
   },
   {
     name: "Byte Bistro",
@@ -153,6 +174,7 @@ const businesses = [
     starsarray: [4, 5, 4, 4, 5],
     stars: 4.4,
     coordinates: { lat: 30.2672, lng: -97.7431 },
+    category: "Restaurant",
   },
   {
     name: "EcoHome Furnishings",
@@ -162,6 +184,7 @@ const businesses = [
     starsarray: [5, 4, 5, 4, 5],
     stars: 4.6,
     coordinates: { lat: 45.5155, lng: -122.6789 },
+    category: "Home & Garden",
   },
   {
     name: "Rhythm & Brews",
@@ -171,6 +194,7 @@ const businesses = [
     starsarray: [4, 5, 5, 4, 5],
     stars: 4.6,
     coordinates: { lat: 36.1627, lng: -86.7816 },
+    category: "Entertainment",
   },
   {
     name: "Sunset Sips",
@@ -180,6 +204,7 @@ const businesses = [
     starsarray: [4, 5, 4, 4, 5],
     stars: 4.4,
     coordinates: { lat: 32.7157, lng: -117.1611 },
+    category: "Nightlife",
   },
   {
     name: "The Fashion Hub",
@@ -189,6 +214,7 @@ const businesses = [
     starsarray: [5, 4, 5, 5, 4],
     stars: 4.6,
     coordinates: { lat: 32.7767, lng: -96.797 },
+    category: "Fashion",
   },
   {
     name: "Healthy Harvest",
@@ -198,9 +224,9 @@ const businesses = [
     starsarray: [5, 4, 4, 5, 5],
     stars: 4.6,
     coordinates: { lat: 39.7392, lng: -104.9903 },
+    category: "Restaurant",
   },
 ];
-
 
 async function seedDB() {
   try {

@@ -17,6 +17,8 @@ const users = [
     password: "password123",
     firstName: "John",
     lastName: "Doe",
+    image:
+      "https://images.generated.photos/hduC_c_9RYIUAnQvFf6wh91HGwQ9ch3IceyinaIQcnY/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTc0NzA1LmpwZw.jpg",
   },
   {
     username: "jane_smith",
@@ -24,6 +26,8 @@ const users = [
     password: "password456",
     firstName: "Jane",
     lastName: "Smith",
+    image:
+      "https://images.generated.photos/EaK_N7mp83PlmZ6DVuyIl4YJ5CENKqBP4H43vdSdciw/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NDE3MTI5LmpwZw.jpg",
   },
   {
     username: "bob_johnson",
@@ -31,6 +35,8 @@ const users = [
     password: "password789",
     firstName: "Bob",
     lastName: "Johnson",
+    image:
+      "https://images.generated.photos/GlIHfcM2BOwjqPAenF6dc966Q2mIZjTYWhGr8abF0tI/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/Njk5OTY5LmpwZw.jpg",
   },
   {
     username: "alice_brown",
@@ -38,6 +44,8 @@ const users = [
     password: "passwordabc",
     firstName: "Alice",
     lastName: "Brown",
+    image:
+      "https://images.generated.photos/UWh0PRW-mL1tJM-ctIYzqYgrvUrK8NPeyZYq1pUM-O4/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NjY0ODU1LmpwZw.jpg",
   },
   {
     username: "charlie_davis",
@@ -45,6 +53,8 @@ const users = [
     password: "passworddef",
     firstName: "Charlie",
     lastName: "Davis",
+    image:
+      "https://images.generated.photos/pCKFjaPQSgRIe8cFc8q7n8jFJfw-GXqPKjkg1644Kb0/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NDQ3MDQ3LmpwZw.jpg",
   },
   {
     username: "rgam2002",
@@ -52,6 +62,8 @@ const users = [
     password: "$2a$10$ROXA92ULPBDXnscRgrcMweP.MS6ivIwb9inb2B3X.r80/XygrWe7K",
     firstName: "Ron",
     lastName: "Gamarnik",
+    image:
+      "https://cdn.britannica.com/06/150806-050-6AE99C98/Proboscis-monkey.jpg",
   },
 ];
 
@@ -170,7 +182,8 @@ const businesses = [
     name: "Byte Bistro",
     description: "Tech-themed restaurant with digital ordering",
     location: "Austin, TX",
-    image: "https://example.com/byte-bistro.jpg",
+    image:
+      "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8VGVjaCUyMHRoZW1lZCUyMHJlc3RhdXJhbnQlMjB3aXRoJTIwZGlnaXRhbCUyMG9yZGVyaW5nfGVufDB8fDB8fHww",
     starsarray: [4, 5, 4, 4, 5],
     stars: 4.4,
     coordinates: { lat: 30.2672, lng: -97.7431 },
@@ -180,7 +193,8 @@ const businesses = [
     name: "EcoHome Furnishings",
     description: "Sustainable and eco-friendly home decor",
     location: "Portland, OR",
-    image: "https://example.com/ecohome-furnishings.jpg",
+    image:
+      "https://plus.unsplash.com/premium_photo-1691642677915-a0d6d21430e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RWNvSG9tZSUyMEZ1cm5pc2hpbmdzfGVufDB8fDB8fHww",
     starsarray: [5, 4, 5, 4, 5],
     stars: 4.6,
     coordinates: { lat: 45.5155, lng: -122.6789 },
@@ -190,7 +204,8 @@ const businesses = [
     name: "Rhythm & Brews",
     description: "Live music venue and craft brewery",
     location: "Nashville, TN",
-    image: "https://example.com/rhythm-and-brews.jpg",
+    image:
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TGl2ZSUyMG11c2ljJTIwdmVudWUlMjBhbmQlMjBjcmFmdCUyMGJyZXdlcnl8ZW58MHx8MHx8fDA%3D",
     starsarray: [4, 5, 5, 4, 5],
     stars: 4.6,
     coordinates: { lat: 36.1627, lng: -86.7816 },
@@ -200,7 +215,8 @@ const businesses = [
     name: "Sunset Sips",
     description: "Rooftop bar with panoramic city views",
     location: "San Diego, CA",
-    image: "https://example.com/sunset-sips.jpg",
+    image:
+      "https://images.unsplash.com/photo-1644027614757-156915491e36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Um9vZnRvcCUyMGJhcnxlbnwwfHwwfHx8MA%3D%3D",
     starsarray: [4, 5, 4, 4, 5],
     stars: 4.4,
     coordinates: { lat: 32.7157, lng: -117.1611 },
@@ -210,7 +226,8 @@ const businesses = [
     name: "The Fashion Hub",
     description: "Trendy and high-end fashion boutique",
     location: "Dallas, TX",
-    image: "https://example.com/the-fashion-hub.jpg",
+    image:
+      "https://plus.unsplash.com/premium_photo-1664202525979-80d1da46b34b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RmFzaGlvbiUyMEh1YnxlbnwwfHwwfHx8MA%3D%3D",
     starsarray: [5, 4, 5, 5, 4],
     stars: 4.6,
     coordinates: { lat: 32.7767, lng: -96.797 },
@@ -220,7 +237,8 @@ const businesses = [
     name: "Healthy Harvest",
     description: "Farm-to-table organic restaurant",
     location: "Denver, CO",
-    image: "https://example.com/healthy-harvest.jpg",
+    image:
+      "https://images.unsplash.com/photo-1570474640932-c5dfbeeb2706?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3JnYW5pYyUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
     starsarray: [5, 4, 4, 5, 5],
     stars: 4.6,
     coordinates: { lat: 39.7392, lng: -104.9903 },

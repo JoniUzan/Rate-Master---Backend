@@ -9,6 +9,7 @@ interface IBusiness extends Document {
   reviews: string[];
   image: string;
   coordinates: { lat: number; lng: number };
+  category: string;
 }
 
 const businessSchema = new Schema<IBusiness>({
@@ -16,10 +17,11 @@ const businessSchema = new Schema<IBusiness>({
   description: { type: String, required: true },
   location: { type: String },
   stars: { type: Number, default: 0, required: true },
-  satrsarray:{ type: [], default: [], required: true },
+  satrsarray: { type: [], default: [], required: true },
   reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
   image: { type: String, required: true },
   coordinates: { type: Object, required: true },
+  category: { type: String, required: true },
 });
 
 const Business = model<IBusiness>("Business", businessSchema);

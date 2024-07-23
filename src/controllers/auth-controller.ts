@@ -8,7 +8,7 @@ dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 import { Request, Response, NextFunction } from "express";
-import { CustomRequest } from "./business.controller";
+import { CustomRequest } from "../middelware/auth-middelware";
 import Like from "../models/like-model";
 
 const SALT_ROUNDS = 10; // Number of rounds to generate salt. 10 is recommended value
@@ -81,34 +81,6 @@ export async function logIn(req: Request, res: Response) {
     res.status(500).json({ error: "Login failed" });
   }
 }
-
-// export async function getUserById(req: CustomRequest, res: Response) {
-//   const { userId } = req;
-//   console.log(userId);
-
-//   try {
-//     const user = await User.findById(userId);
-
-//     if (!user) {
-//       return res.status(404).json({ error: "User not found" });
-//     }
-
-//     const userLikes = await Like.find({ user: userId })
-//     console.log(userLikes);
-
-//     const likedReviews = userLikes.map((like) => like.review._id);
-
-
-
-//     const userObject = user.toObject();
-//     const { password, ...userWithoutPassword } = userObject;
-
-//     res.status(200).json({ user: userWithoutPassword });
-//   } catch (error) {
-//     console.error("Error fetching user:", error);
-//     res.status(500).json({ error: "Server error" });
-//   }
-// }
 
 export async function getUserById(req: CustomRequest, res: Response) {
   const { userId } = req;

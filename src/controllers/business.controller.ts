@@ -173,6 +173,11 @@ export async function addReview(req: CustomRequest, res: Response) {
     await newReview.save();
     const user = await User.findById(userId);
 
+    const populatedReview = await Review.findById(newReview._id).populate('user', 'username');
+
+    // Emit socket event for new review
+    io.emit("newReview", populatedReview);
+
     res.status(201).json(newReview);
   } catch (error) {
     console.log("Error adding review, business.controller:", error);
@@ -200,16 +205,18 @@ export async function editReview(req: CustomRequest, res: Response) {
   const newContent = req.body.content;
 
   try {
-    const UpdatedReview = await Review.findOneAndUpdate(
+    const updatedReview = await Review.findOneAndUpdate(
       { _id: id, user: userId },
       { content: newContent },
       { new: true, runValidators: true }
     );
-    if (!UpdatedReview) {
+    if (!updatedReview) {
       return res.status(404).json({ message: "Review not found" });
     }
 
-    res.status(200).json(UpdatedReview);
+    io.emit("updateReviewContent", updatedReview);
+
+    res.status(200).json(updatedReview);
   } catch (error: any) {
     console.log("Error updating review, business.controller:", error);
     if (error) {
@@ -242,6 +249,8 @@ export async function deleteReview(req: CustomRequest, res: Response) {
         message: "Review not found / You dont have access to this Review",
       });
     }
+
+    io.emit("reviewToDelete", reviewToDelete);
 
     res.status(200).json({ message: "Review Deleted Succssfully" });
   } catch (error: any) {

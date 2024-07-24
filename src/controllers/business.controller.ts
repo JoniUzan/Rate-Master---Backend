@@ -266,13 +266,13 @@ export async function deleteReview(req: CustomRequest, res: Response) {
 
     const business = await Business.findOne({ _id: reviewToDelete.business });
 
+
     if (business) {
-      business.starsarray = business.starsarray.filter((rating: number) => {
-        // Ensure you filter out only the specific review rating
-        return (
-          rating !== reviewToDelete.rating || !reviewToDelete._id.equals(id)
-        );
-      });
+      const indexToRemove = business.starsarray.findIndex((rating: number) => rating === reviewToDelete.rating);
+      if (indexToRemove !== -1) {
+        business.starsarray.splice(indexToRemove, 1);
+      }
+
 
       let totalRating = 0;
       for (const rating of business.starsarray) {

@@ -169,7 +169,7 @@ export async function addReview(req: CustomRequest, res: Response) {
       content,
       business: id,
       user: userId,
-      rating
+      rating,
     });
     await newReview.save();
     const user = await User.findById(userId);
@@ -184,7 +184,10 @@ export async function addReview(req: CustomRequest, res: Response) {
       await business.save();
     }
 
-    const populatedReview = await Review.findById(newReview._id).populate('user', 'username');
+    const populatedReview = await Review.findById(newReview._id).populate(
+      "user",
+      "username image"
+    );
 
     // Emit socket event for new review
     io.emit("newReview", populatedReview);
@@ -263,18 +266,21 @@ export async function deleteReview(req: CustomRequest, res: Response) {
 
     const business = await Business.findOne({ _id: reviewToDelete.business });
 
-
     if (business) {
       business.starsarray = business.starsarray.filter((rating: number) => {
         // Ensure you filter out only the specific review rating
-        return rating !== reviewToDelete.rating || !reviewToDelete._id.equals(id);
+        return (
+          rating !== reviewToDelete.rating || !reviewToDelete._id.equals(id)
+        );
       });
 
       let totalRating = 0;
       for (const rating of business.starsarray) {
         totalRating += rating;
       }
-      business.stars = business.starsarray.length ? totalRating / business.starsarray.length : 0;
+      business.stars = business.starsarray.length
+        ? totalRating / business.starsarray.length
+        : 0;
 
       await business.save();
     }
@@ -315,7 +321,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
 
       const updatedReview = await Review.findById(id).populate(
         "user",
-        "username"
+        "username image"
       );
       if (updatedReview) {
         updatedReview.likes += 1;
@@ -332,7 +338,7 @@ export async function handleReviewLike(req: CustomRequest, res: Response) {
 
       const updatedReview = await Review.findById(id).populate(
         "user",
-        "username"
+        "username image"
       );
       if (updatedReview) {
         updatedReview.likes -= 1;
